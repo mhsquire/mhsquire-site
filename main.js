@@ -62,33 +62,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Contact Form Handling
-const contactForm = document.getElementById('contact-form');
-const formSuccess = document.getElementById('form-success');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Honeypot check
-        const honey = contactForm.querySelector('input[name="_honey"]').value;
-        if (honey) {
-            console.warn("Spam detected via honeypot.");
-            return;
-        }
-
-        // Simulate form submission
-        const formData = new FormData(contactForm);
-        console.log("Form submitted:", Object.fromEntries(formData));
-
-        // UI Feedback
-        contactForm.style.display = 'none';
-        formSuccess.style.display = 'block';
-        
-        // Here you would typically integrate with a service like Formspree or Netlify
-        // fetch("https://formspree.io/f/your-id", { method: "POST", body: formData });
-    });
-}
 
 // Topographic Lines Generator
 const topoContainer = document.querySelector('.topo-lines');
